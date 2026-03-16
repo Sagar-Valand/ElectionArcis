@@ -234,7 +234,7 @@ const Heatmapp = () => {
       <Flex direction="column" align="flex-start" mx="auto" px={0} mb={4}>
         <Flex align="center" w="100%">
           <Text fontSize="26px" fontWeight="400" color={text} mr={2}>
-            Heatmap - District wise - sagar
+            Heatmap - District wise
           </Text>
           <Image src="/images/right_of_text.png" h="1px" flex="1" display={{ base: "none", md: "block" }} />
           <Flex border="1px solid #868686" borderRadius="12px" overflow="hidden" height="40px" minW="320px">
