@@ -1,0 +1,97 @@
+{
+  "name": "ArcisAi-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@capacitor-firebase/messaging": "^6.2.0",
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2",
+    "@capacitor/local-notifications": "^6.1.1",
+    "@capacitor/push-notifications": "^6.0.3",
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/material": "^7.0.2",
+    "@react-google-maps/api": "^2.20.7",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "apexcharts": "^3.50.0",
+    "axios": "^0.28.0",
+    "bootstrap": "^5.3.7",
+    "chart.js": "^4.4.3",
+    "cloud-timeline-component": "^1.1.3",
+    "dotenv": "^16.4.5",
+    "edge-timeline-component": "^1.0.2",
+    "file-saver": "^2.0.5",
+    "flv.js": "^1.6.2",
+    "framer-motion": "^11.11.17",
+    "js-base64": "^3.7.7",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
+    "moment": "^2.30.1",
+    "mpegts.js": "^1.8.0",
+    "razorpay": "^2.9.5",
+    "react": "^18.3.1",
+    "react-apexcharts": "^1.4.1",
+    "react-bootstrap": "^2.10.10",
+    "react-calendar": "^5.1.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-custom-scrollbars-2": "^4.5.0",
+    "react-datepicker": "^7.5.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.3.0",
+    "react-jessibuca": "^1.2.0",
+    "react-joystick-component": "^6.2.1",
+    "react-pull-to-refreshify": "^0.1.0",
+    "react-router-dom": "^6.24.1",
+    "react-scripts": "5.0.1",
+    "react-select": "^5.8.3",
+    "react-toastify": "^11.0.5",
+    "react-use-websocket": "^4.11.1",
+    "react-window": "^1.8.11",
+    "socket.io-client": "^4.8.1",
+    "sweetalert2": "^11.22.2",
+    "ua-parser-js": "^2.0.0",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "PORT=3002 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "proxy": "http://192.168.1.88",
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
+  "devDependencies": {
+    "@babel/preset-react": "^7.25.9",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^6.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

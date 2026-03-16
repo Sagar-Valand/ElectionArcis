@@ -1,0 +1,71 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout Code
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3️⃣ Install Backend Dependencies
+      - name: Install Backend
+        run: |
+          cd arcis_backend_R-D
+          npm ci --production
+
+      # 4️⃣ Install & Build Frontend
+      - name: Build Frontend
+        run: |
+          cd arcis_frontend_R-D
+          npm ci
+          npm run build
+
+      # 5️⃣ Remove frontend node_modules (not needed in production)
+      - name: Clean Frontend
+        run: |
+          rm -rf arcis_frontend_R-D/node_modules
+
+      # 6️⃣ Copy Backend
+      - name: Deploy Backend
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "arcis_backend_R-D"
+          target: "/home/vmukti/keralacheckpost2026-Election-Portal/"
+
+      # 7️⃣ Copy Frontend
+      - name: Deploy Frontend
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          source: "arcis_frontend_R-D"
+          target: "/home/vmukti/keralacheckpost2026-Election-Portal/"
+
+      # 8️⃣ Restart Services
+      - name: Restart Services
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            sudo systemctl restart keralacheckpost2026-backend.service
+            sudo systemctl restart keralacheckpost2026-frontend.service
+            echo "Deployment Complete"
